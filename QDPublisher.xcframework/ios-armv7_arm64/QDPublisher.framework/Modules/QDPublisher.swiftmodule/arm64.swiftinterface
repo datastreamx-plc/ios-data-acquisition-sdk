@@ -1,0 +1,25 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name QDPublisher
+import AdSupport
+import CommonCrypto
+import CoreLocation
+import Foundation
+import Gzip
+import Swift
+import UIKit
+public let service: QDPublisher.QDPublisherService
+@_hasMissingDesignatedInitializers public class QDPublisherService {
+  public var connectionErrorHandler: ((Swift.String) -> Swift.Void)? {
+    get
+    set
+  }
+  public var debug: Swift.Bool {
+    get
+    set
+  }
+  public func setup(_ integrationKey: Swift.String)
+  public func track(location: CoreLocation.CLLocation)
+  public func track(generic passedParams: [Swift.String : Any])
+  @objc deinit
+}
