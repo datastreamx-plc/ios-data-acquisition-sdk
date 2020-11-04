@@ -21,6 +21,6 @@ Pod::Spec.new do |spec|
   spec.source       = { git: "https://github.com/syaifulQ/QDPublisher.git", tag: "#{spec.version}" }
   spec.ios.deployment_target = '9.0'
   spec.ios.vendored_frameworks = 'QDPublisher.xcframework'
-  spec.dependency = 'GzipSwift'
+  spec.dependency 'GzipSwift'
 
 end
