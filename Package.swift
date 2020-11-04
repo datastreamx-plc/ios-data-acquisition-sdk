@@ -11,7 +11,7 @@ let package = Package(
             targets: ["QDPublisher"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/1024jp/GzipSwift.git"),
+        .package(name: "GzipSwift", url: "https://github.com/1024jp/GzipSwift.git", from: "5.1.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
