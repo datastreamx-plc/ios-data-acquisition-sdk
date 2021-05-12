@@ -1,0 +1,4 @@
+framework module QDPublisher {
+  header "QDPublisher-Swift.h"
+  requires objc
+}
