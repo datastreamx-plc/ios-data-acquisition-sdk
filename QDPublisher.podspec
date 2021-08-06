@@ -9,7 +9,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "QDPublisher"
-  spec.version      = "0.0.8"
+  spec.version      = "1.0.0"
   spec.summary      = "A short description of QDPublisher."
   spec.description  = <<-DESC
   example desc
