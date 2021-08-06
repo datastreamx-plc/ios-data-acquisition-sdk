@@ -9,10 +9,10 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "QDPublisher"
-  spec.version      = "1.0.0-beta.1"
+  spec.version      = "1.0.0"
   spec.summary      = "QDPublisher"
   spec.description  = <<-DESC
-    QDPublisher
+  QDPublisher from Quadrant.io
                    DESC
 
   spec.homepage     = "https://www.quadrant.io"

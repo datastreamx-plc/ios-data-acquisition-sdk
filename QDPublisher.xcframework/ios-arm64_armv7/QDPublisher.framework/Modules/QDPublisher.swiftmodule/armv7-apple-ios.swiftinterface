@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
-// swift-module-flags: -target armv7-apple-ios8.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name QDPublisher
+// swift-module-flags: -target armv7-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name QDPublisher
 import AdSupport
 import CommonCrypto
 import CoreLocation
@@ -8,6 +8,11 @@ import Foundation
 import Gzip
 import Swift
 import UIKit
+@objc public protocol LocationServiceDelegate : AnyObject {
+  @objc func qdPublisherControllreParent() -> UIKit.UIViewController?
+  @objc optional func qdPublisherWillShowCustomAlert()
+  @objc optional func qdPublisherDidFinishShowCustomAlert()
+}
 @_hasMissingDesignatedInitializers public class IPAddressServices {
   public static let shared: QDPublisher.IPAddressServices
   @objc deinit
@@ -22,8 +27,11 @@ public protocol LoggerEvent {
   @objc deinit
 }
 public let service: QDPublisher.QDPublisherService
+public protocol QDPublisherDelegate : QDPublisher.LocationServiceDelegate {
+  func qdPublisherOnError(error: Swift.Error)
+}
 @_hasMissingDesignatedInitializers public class QDPublisherService {
-  public var connectionErrorHandler: ((Swift.String) -> Swift.Void)? {
+  weak public var delegate: QDPublisher.QDPublisherDelegate? {
     get
     set
   }
@@ -32,7 +40,7 @@ public let service: QDPublisher.QDPublisherService
     set
   }
   public func setup(_ integrationKey: Swift.String)
-  public func track(location: CoreLocation.CLLocation)
   public func track(generic passedParams: [Swift.String : Any])
+  public func startTrackingLocation()
   @objc deinit
 }
