@@ -8,11 +8,6 @@ import Foundation
 import Gzip
 import Swift
 import UIKit
-@objc public protocol LocationServiceDelegate : AnyObject {
-  @objc func qdPublisherControllreParent() -> UIKit.UIViewController?
-  @objc optional func qdPublisherWillShowCustomAlert()
-  @objc optional func qdPublisherDidFinishShowCustomAlert()
-}
 @_hasMissingDesignatedInitializers public class IPAddressServices {
   public static let shared: QDPublisher.IPAddressServices
   @objc deinit
@@ -43,4 +38,9 @@ public protocol QDPublisherDelegate : QDPublisher.LocationServiceDelegate {
   public func track(generic passedParams: [Swift.String : Any])
   public func startTrackingLocation()
   @objc deinit
+}
+@objc public protocol LocationServiceDelegate : AnyObject {
+  @objc func qdPublisherControllreParent() -> UIKit.UIViewController?
+  @objc optional func qdPublisherWillShowCustomAlert()
+  @objc optional func qdPublisherDidFinishShowCustomAlert()
 }
