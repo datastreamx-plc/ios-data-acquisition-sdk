@@ -190,6 +190,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import ObjectiveC;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -211,10 +212,36 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_PROTOCOL("_TtP11QDPublisher23LocationServiceDelegate_")
 @protocol LocationServiceDelegate
-- (UIViewController * _Nullable)qdPublisherControllreParent SWIFT_WARN_UNUSED_RESULT;
+- (UIViewController * _Nullable)publisherControllreParent SWIFT_WARN_UNUSED_RESULT;
 @optional
-- (void)qdPublisherWillShowCustomAlert;
-- (void)qdPublisherDidFinishShowCustomAlert;
+- (void)publisherWillShowCustomAlert;
+- (void)publisherDidFinishShowCustomAlert;
+@end
+
+@protocol PublisherDelegate;
+
+SWIFT_CLASS("_TtC11QDPublisher9Publisher")
+@interface Publisher : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Publisher * _Nonnull shared;)
++ (Publisher * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, weak) id <PublisherDelegate> _Nullable delegate;
+@property (nonatomic) BOOL disableAlertWhenUserDenied;
+@property (nonatomic, copy) NSString * _Nonnull requestAccessAlertTitle;
+@property (nonatomic, copy) NSString * _Nonnull requestAccessAlertMessage;
+@property (nonatomic) BOOL debug;
+- (void)setup:(NSString * _Nonnull)integrationKey;
+- (void)trackWithGeneric:(NSDictionary<NSString *, id> * _Nonnull)passedParams;
+- (void)startTrackingLocation;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+
+SWIFT_PROTOCOL("_TtP11QDPublisher17PublisherDelegate_")
+@protocol PublisherDelegate <LocationServiceDelegate>
+- (void)publisherOnErrorWithError:(NSError * _Nonnull)error;
+- (void)publisherOnSuccessTracking;
 @end
 
 #if __has_attribute(external_source_symbol)
@@ -414,6 +441,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import ObjectiveC;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -435,10 +463,36 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_PROTOCOL("_TtP11QDPublisher23LocationServiceDelegate_")
 @protocol LocationServiceDelegate
-- (UIViewController * _Nullable)qdPublisherControllreParent SWIFT_WARN_UNUSED_RESULT;
+- (UIViewController * _Nullable)publisherControllreParent SWIFT_WARN_UNUSED_RESULT;
 @optional
-- (void)qdPublisherWillShowCustomAlert;
-- (void)qdPublisherDidFinishShowCustomAlert;
+- (void)publisherWillShowCustomAlert;
+- (void)publisherDidFinishShowCustomAlert;
+@end
+
+@protocol PublisherDelegate;
+
+SWIFT_CLASS("_TtC11QDPublisher9Publisher")
+@interface Publisher : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Publisher * _Nonnull shared;)
++ (Publisher * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, weak) id <PublisherDelegate> _Nullable delegate;
+@property (nonatomic) BOOL disableAlertWhenUserDenied;
+@property (nonatomic, copy) NSString * _Nonnull requestAccessAlertTitle;
+@property (nonatomic, copy) NSString * _Nonnull requestAccessAlertMessage;
+@property (nonatomic) BOOL debug;
+- (void)setup:(NSString * _Nonnull)integrationKey;
+- (void)trackWithGeneric:(NSDictionary<NSString *, id> * _Nonnull)passedParams;
+- (void)startTrackingLocation;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+
+SWIFT_PROTOCOL("_TtP11QDPublisher17PublisherDelegate_")
+@protocol PublisherDelegate <LocationServiceDelegate>
+- (void)publisherOnErrorWithError:(NSError * _Nonnull)error;
+- (void)publisherOnSuccessTracking;
 @end
 
 #if __has_attribute(external_source_symbol)
@@ -638,6 +692,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import ObjectiveC;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -659,10 +714,36 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_PROTOCOL("_TtP11QDPublisher23LocationServiceDelegate_")
 @protocol LocationServiceDelegate
-- (UIViewController * _Nullable)qdPublisherControllreParent SWIFT_WARN_UNUSED_RESULT;
+- (UIViewController * _Nullable)publisherControllreParent SWIFT_WARN_UNUSED_RESULT;
 @optional
-- (void)qdPublisherWillShowCustomAlert;
-- (void)qdPublisherDidFinishShowCustomAlert;
+- (void)publisherWillShowCustomAlert;
+- (void)publisherDidFinishShowCustomAlert;
+@end
+
+@protocol PublisherDelegate;
+
+SWIFT_CLASS("_TtC11QDPublisher9Publisher")
+@interface Publisher : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Publisher * _Nonnull shared;)
++ (Publisher * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, weak) id <PublisherDelegate> _Nullable delegate;
+@property (nonatomic) BOOL disableAlertWhenUserDenied;
+@property (nonatomic, copy) NSString * _Nonnull requestAccessAlertTitle;
+@property (nonatomic, copy) NSString * _Nonnull requestAccessAlertMessage;
+@property (nonatomic) BOOL debug;
+- (void)setup:(NSString * _Nonnull)integrationKey;
+- (void)trackWithGeneric:(NSDictionary<NSString *, id> * _Nonnull)passedParams;
+- (void)startTrackingLocation;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+
+SWIFT_PROTOCOL("_TtP11QDPublisher17PublisherDelegate_")
+@protocol PublisherDelegate <LocationServiceDelegate>
+- (void)publisherOnErrorWithError:(NSError * _Nonnull)error;
+- (void)publisherOnSuccessTracking;
 @end
 
 #if __has_attribute(external_source_symbol)

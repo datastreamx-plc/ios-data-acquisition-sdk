@@ -8,39 +8,43 @@ import Foundation
 import Gzip
 import Swift
 import UIKit
-@_hasMissingDesignatedInitializers public class IPAddressServices {
-  public static let shared: QDPublisher.IPAddressServices
-  @objc deinit
-}
 public protocol LoggerEvent {
   func logger(_ key: Swift.String, log: Swift.String)
 }
-@_hasMissingDesignatedInitializers public class Logger {
-  public static let shared: QDPublisher.Logger
-  public func registerEvent(_ key: Swift.String, logEvent: QDPublisher.LoggerEvent)
-  public func removeEvent(_ key: Swift.String)
-  @objc deinit
+@objc public protocol PublisherDelegate : QDPublisher.LocationServiceDelegate {
+  @objc func publisherOnError(error: Swift.Error)
+  @objc func publisherOnSuccessTracking()
 }
-public let service: QDPublisher.QDPublisherService
-public protocol QDPublisherDelegate : QDPublisher.LocationServiceDelegate {
-  func qdPublisherOnError(error: Swift.Error)
-}
-@_hasMissingDesignatedInitializers public class QDPublisherService {
-  weak public var delegate: QDPublisher.QDPublisherDelegate? {
-    get
-    set
+@_hasMissingDesignatedInitializers @objc public class Publisher : ObjectiveC.NSObject {
+  @objc public static let shared: QDPublisher.Publisher
+  @objc weak public var delegate: QDPublisher.PublisherDelegate? {
+    @objc get
+    @objc set
   }
-  public var debug: Swift.Bool {
-    get
-    set
+  @objc public var disableAlertWhenUserDenied: Swift.Bool {
+    @objc get
+    @objc set
   }
-  public func setup(_ integrationKey: Swift.String)
-  public func track(generic passedParams: [Swift.String : Any])
-  public func startTrackingLocation()
+  @objc public var requestAccessAlertTitle: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc public var requestAccessAlertMessage: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc public var debug: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public func setup(_ integrationKey: Swift.String)
+  @objc public func track(generic passedParams: [Swift.String : Any])
+  @objc public func startTrackingLocation()
   @objc deinit
+  @objc override dynamic public init()
 }
-@objc public protocol LocationServiceDelegate : AnyObject {
-  @objc func qdPublisherControllreParent() -> UIKit.UIViewController?
-  @objc optional func qdPublisherWillShowCustomAlert()
-  @objc optional func qdPublisherDidFinishShowCustomAlert()
+@objc public protocol LocationServiceDelegate {
+  @objc func publisherControllreParent() -> UIKit.UIViewController?
+  @objc optional func publisherWillShowCustomAlert()
+  @objc optional func publisherDidFinishShowCustomAlert()
 }
