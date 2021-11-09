@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let integrationKey: String = "your integration key here"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        /// setup event. You need implement method from `QDPublisherDelegate`
+        /// setup event. You need implement method from `PublisherDelegate`
         publisher.delegate = self
                   
         /// setup integration key
@@ -47,12 +47,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-Implement QDPublisherDelegate - iOS
+Implement PublisherDelegate - iOS
 
-After setting publisher.delegate = self you need to implement QDPublisherDelegate : 
+After setting publisher.delegate = self you need to implement PublisherDelegate : 
 
 ```swift
-extension AppDelegate: QDPublisherDelegate {
+extension AppDelegate: PublisherDelegate {
     
     /// this method called when failure to track location
     func publisherOnError(error: Error) {
@@ -90,7 +90,7 @@ NSString *integrationKey = @"your integration key here";
     
     Publisher* publisher = Publisher.shared;
     
-    /// setup event. You need implement method from `QDPublisherDelegate`
+    /// setup event. You need implement method from `PublisherDelegate`
     publisher.delegate = self;
     
     /// setup integration key
@@ -114,7 +114,7 @@ NSString *integrationKey = @"your integration key here";
 }
 
 
-#pragma mark - QDPublisherDelegate
+#pragma mark - PublisherDelegate
 
 - (UIViewController * _Nullable)publisherControllreParent {
     NSPredicate *isKeyWindow = [NSPredicate predicateWithFormat:@"isKeyWindow == YES"];
