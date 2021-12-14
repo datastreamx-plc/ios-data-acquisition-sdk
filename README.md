@@ -3,13 +3,22 @@
 
 ## Installation using Cocoapods
 
-- add this line in your Podfile:
+add this line in your Podfile:
 
-```shell
-swift pod "QDPublisher", :git => 'https://github.com/datastreamx-plc/ios-data-acquisition-sdk.git', :tag => '1.1.3'
+```ruby
+    pod "QDPublisher", :git => 'https://github.com/datastreamx-plc/ios-data-acquisition-sdk.git', :tag => '1.1.3'
 ```
 
-and then install by type `pod install` in your command line
+to install dependencies from cocoapods:
+```shell
+    pod install
+```
+
+sometimes pod not updated so you can clean cache and update pod
+```shell
+    pod cache clean --all
+    pod udpate QDPublisher
+```
 
 ## Configure Info.plist
 
