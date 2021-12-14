@@ -1,16 +1,39 @@
-# Location SDK v1.1.0
+# Location SDK v1.1.3
+
 
 ## Installation using Cocoapods
 
 - add this line in your Podfile:
 
 ```shell
-swift pod "QDPublisher", :git => 'https://github.com/datastreamx-plc/ios-data-acquisition-sdk.git', :tag => '1.1.0'
+swift pod "QDPublisher", :git => 'https://github.com/datastreamx-plc/ios-data-acquisition-sdk.git', :tag => '1.1.3'
 ```
 
-and then install by type pod install in your command line
+and then install by type `pod install` in your command line
 
-Setup Integration Key and Start Tracking
+## Configure Info.plist
+
+### update your location usage descriptions
+
+```xml
+<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+<string><your location access description></string>
+
+<key>NSLocationAlwaysUsageDescription</key>
+<string><your location access description></string>
+
+<key>NSLocationWhenInUseUsageDescription</key>
+<string><your location access description></string>
+```
+
+### update your tracking manager description
+
+```xml
+<key>NSUserTrackingUsageDescription </key>
+<string><your tracking usage description></string>
+```
+
+## Setup Integration Key and Start Tracking
 
 register your integration key after app launch, after that you can setup your event and start tracking location, usually your AppDelegate
 
@@ -72,7 +95,7 @@ extension AppDelegate: PublisherDelegate {
 }
 ```
 
-For Objective-C
+## For Objective-C
 
 Basically, the API is same just different language. Here’s the full code for objective-c in AppDelegate.m
 ```objective-c
